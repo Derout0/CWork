@@ -22,6 +22,7 @@ public abstract class BaseRepository<T> {
 
         try (Statement statement = connection.createStatement();
              ResultSet resultSet = statement.executeQuery(query)) {
+
              while (resultSet.next()) {
                 results.add(mapping(resultSet));
             }

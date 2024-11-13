@@ -11,15 +11,6 @@ import java.util.InputMismatchException;
 import java.util.List;
 import java.util.Scanner;
 
-interface ApplicationInterface {
-    void listManagers() throws SQLException;
-    void countClients() throws SQLException;
-    void listClientsByCountry() throws SQLException;
-    void averageTourCost() throws SQLException;
-    void averageTourDuration() throws SQLException;
-    void mostPopularCountry() throws SQLException;
-}
-
 public class ConsoleApplication implements ApplicationInterface {
     private final ManagerService managerService;
     private final ClientService clientService;
@@ -46,7 +37,7 @@ public class ConsoleApplication implements ApplicationInterface {
 
     public void countClients() throws SQLException {
         int count = clientService.getClientCount();
-        System.out.println("Total clients: " + count);
+        System.out.println("Всього клієнтів: " + count);
     }
 
     public void listClientsByCountry() throws SQLException {
@@ -67,17 +58,17 @@ public class ConsoleApplication implements ApplicationInterface {
 
     public void averageTourCost() throws SQLException {
         double averageCost = tourService.getAverageTourCost();
-        System.out.println("Average tour cost: " + averageCost);
+        System.out.println("Середня вартість туру: " + averageCost);
     }
 
     public void averageTourDuration() throws SQLException {
         double averageDuration = tourService.getAverageTourDuration();
-        System.out.println("Average tour duration: " + averageDuration);
+        System.out.println("Середня тривалість екскурсії: " + averageDuration);
     }
 
     public void mostPopularCountry() throws SQLException {
         String country = tourService.getMostPopularCountry();
-        System.out.println("Most popular country: " + country);
+        System.out.println("Найпопулярніша країна: " + country);
     }
 
     public void showMenu() {
